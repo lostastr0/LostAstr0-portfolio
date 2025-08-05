@@ -23,7 +23,7 @@ particlesJS("particles-js", {
   },
   interactivity: {
     detect_on: "canvas",
-    events: { onhover: { enable: false }, onclick: { enable: false }, resize: true }
+    events: { onhover: { enable: true }, onclick: { enable: false }, resize: true }
   },
   retina_detect: true
 });
