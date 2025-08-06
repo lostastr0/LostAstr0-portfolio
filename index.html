@@ -40,6 +40,16 @@
     </svg>
   </a>
 </div>
+<!-- The hidden cake pop-up -->
+<div id="cake-easter-egg" style="display:none; position:fixed; bottom:50px; left:50%; transform:translateX(-50%);
+  background:white; color:black; padding:16px; border-radius:18px; box-shadow:0 6px 24px rgba(0,0,0,0.22); z-index:2000;
+  opacity:1; transition: opacity 0.5s ease;">
+  🎂 Surprise! Here’s your cake!
+</div>
+
+<!-- Invisible clickable area -->
+<div id="secret-cake" style="position:fixed; left:0; bottom:0; width:40px; height:40px; cursor:pointer; opacity:0; z-index:1000;"></div>
+
   </div>
   <script src="scramble-effect.js"></script>
   <script src="particles-config.js"></script>
@@ -53,5 +63,6 @@ function showNiceTryPopup() {
   alert("Nice try! 😄\n\nThis feature will come later.");
 }
 </script>
+<script src="cake-easter-egg.js"></script>
 </body>
 </html>
