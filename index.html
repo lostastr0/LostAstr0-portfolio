@@ -8,96 +8,75 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome CSS for icons -->
+  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Your CSS -->
+  <!-- Your main CSS -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- tsParticles library -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
 </head>
 <body>
-  <!-- tsParticles container -->
+  <!-- Black background lowest layer -->
+  <div id="bg-black"></div>
+
+  <!-- Starry sky background -->
   <div id="tsparticles"></div>
 
-  <div class="center-content">
+  <!-- Main content centered -->
+  <main class="center-content" role="main">
     <img src="lostastrologo.png" alt="LostAstr0 Logo" class="avatar-logo" />
-    <h1 id="scramble-name" class="main-title">LostAstr0</h1>
-    <h2 class="subtitle">Jaineel</h2>
-    <div class="roles">Future Cybersecurity Student / Future Ethical Hacker / Learner</div>
-    <div class="social">
-      <!-- GitHub Icon Link -->
-      <a href="https://github.com/LostAstr0" aria-label="GitHub" target="_blank" rel="noopener noreferrer" class="social-link">
+
+    <h1 id="scramble-name" class="main-title" tabindex="0">
+      Hello World,
+      <br />
+      <span id="animated-title-wrap">
+        <span id="animated-title"></span>
+        <span id="animated-title-placeholder" aria-hidden="true"></span>
+      </span>
+    </h1>
+
+    <h2 class="subtitle">Future Cybersecurity Student / Future Ethical Hacker / Learner</h2>
+
+    <nav class="social" aria-label="Social media links">
+      <a href="https://github.com/LostAstr0" aria-label="GitHub" class="social-link" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-github" aria-hidden="true"></i>
       </a>
-
-      <!-- LinkedIn Icon Link (in-progress alert) -->
-      <a href="javascript:void(0)" aria-label="LinkedIn (profile in progress)" class="social-link" id="linkedin-link">
+      <a href="javascript:void(0)" aria-label="LinkedIn profile in progress" class="social-link" id="linkedin-link" role="button" tabindex="0">
         <i class="fab fa-linkedin-in" aria-hidden="true"></i>
       </a>
-
-      <!-- Discord Icon Link with tooltip and copy username -->
-      <a href="javascript:void(0)" aria-label="Discord Username" class="social-link" id="discord-link" data-clipboard-text="lostastr0" tabindex="0">
+      <a href="javascript:void(0)" aria-label="Discord username lostastr0" class="social-link" id="discord-link" role="button" tabindex="0" data-clipboard-text="lostastr0">
         <i class="fab fa-discord" aria-hidden="true"></i>
         <span class="tooltip-text" id="discord-tooltip">lostastr0</span>
       </a>
-    </div>
-  </div>
+    </nav>
+  </main>
 
-  <!-- Cake easter egg -->
+  <!-- Cake Easter egg -->
   <div id="cake-easter-egg" style="display:none; position:fixed; bottom:50px; left:50%; transform:translateX(-50%);
       background:white; color:black; padding:16px; border-radius:18px; box-shadow:0 6px 24px rgba(0,0,0,0.22); z-index:2000;
-      opacity:1; transition: opacity 0.5s ease;">
+      opacity:1; transition: opacity 0.5s ease;" role="alert" aria-live="polite">
     🎂 Surprise! Here’s your cake!
   </div>
-
-  <!-- Invisible clickable area -->
   <div id="secret-cake" style="position:fixed; left:0; bottom:0; width:40px; height:40px; cursor:pointer; opacity:0; z-index:1000;"></div>
 
-  <!-- Development status footer note -->
-  <div class="dev-note-footer">
-    Currently in development
-  </div>
+  <!-- Dev note footer -->
+  <footer class="dev-note-footer" aria-hidden="true">Currently in development</footer>
 
-  <!-- Your custom scripts -->
-  <script src="scramble-effect.js"></script>
-  <script src="tsparticles-config.js"></script>
-  <script src="shooting-stars.js"></script>
-  <script src="cake-easter-egg.js"></script>
-
+  <!-- Floating contact button -->
   <div class="contact-float">
-    <button onclick="showNiceTryPopup()" aria-label="Email Me">
+    <button type="button" aria-label="Email me" tabindex="0" id="contact-button">
       <span>More Soon... Don't Click</span>
     </button>
   </div>
 
-  <script>
-    function showNiceTryPopup() {
-      alert("Nice try! 😄\n\nThis feature will come later.");
-    }
+  <!-- External supporting scripts -->
+  <script src="tsparticles-config.js" defer></script>
+  <script src="shooting-stars.js" defer></script>
+  <script src="cake-easter-egg.js" defer></script>
 
-    // LinkedIn pop-up alert
-    document.getElementById('linkedin-link').addEventListener('click', function() {
-      alert('LinkedIn profile in progress. Stay tuned!');
-    });
-
-    // Discord copy username to clipboard with alert
-    const discordLink = document.getElementById('discord-link');
-    discordLink.addEventListener('click', function() {
-      const username = discordLink.getAttribute('data-clipboard-text');
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(username).then(() => {
-          alert(`Discord username "${username}" copied to clipboard!`);
-        }, () => {
-          alert(`Failed to copy. Please manually copy the Discord username: ${username}`);
-        });
-      } else {
-        alert(`Please copy the Discord username manually: ${username}`);
-      }
-    });
-  </script>
-
+  <!-- Combined main effect handlers -->
+  <script src="effects.js" defer></script>
 </body>
 </html>
